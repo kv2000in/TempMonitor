@@ -8,12 +8,18 @@
 
 /* Begin PBXFileReference section */
 		2A33457421C5360B000A3E23 /* TempMonitor.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = TempMonitor.py; sourceTree = "<group>"; };
+		2A33457521C5A5F2000A3E23 /* plot.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = plot.html; sourceTree = "<group>"; };
+		2A33457621C5AA9A000A3E23 /* JSGen.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = JSGen.py; sourceTree = "<group>"; };
+		2A33457721C5ABCE000A3E23 /* plotly.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = plotly.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		2A33456D21C535BB000A3E23 = {
 			isa = PBXGroup;
 			children = (
+				2A33457621C5AA9A000A3E23 /* JSGen.py */,
+				2A33457521C5A5F2000A3E23 /* plot.html */,
+				2A33457721C5ABCE000A3E23 /* plotly.js */,
 				2A33457421C5360B000A3E23 /* TempMonitor.py */,
 			);
 			sourceTree = "<group>";
