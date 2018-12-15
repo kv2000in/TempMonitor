@@ -6,10 +6,15 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXFileReference section */
+		2A33457421C5360B000A3E23 /* TempMonitor.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = TempMonitor.py; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		2A33456D21C535BB000A3E23 = {
 			isa = PBXGroup;
 			children = (
+				2A33457421C5360B000A3E23 /* TempMonitor.py */,
 			);
 			sourceTree = "<group>";
 		};
