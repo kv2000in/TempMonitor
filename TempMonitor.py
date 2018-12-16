@@ -9,7 +9,7 @@ import urllib2
 myurl = sys.argv[1]
 mysensor = sys.argv[2]
 while 1:
-	myfile = open(mysensor+'.csv','a')
+	myfile = open(datetime.datetime.today().strftime('%m-%d-%Y')+mysensor+'.csv','a')
 	mystring = urllib2.urlopen(myurl+"sensors.json?sense="+mysensor).read()
 	myregex  = r'\S*:\S*:\S*:(\S*)]}}'#\S any non whitespace
 	mytxt = re.search(myregex,mystring)
