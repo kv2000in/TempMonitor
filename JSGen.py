@@ -23,7 +23,7 @@ for myline in myfile:
 	myX.append(myXelement)
 	myY.append(myYelement)
 myfile.close()
-myfile = open(myJSfilename,'a')
+myfile = open(myJSfilename,'w')
 myfile.write('traceX=')
 myfile.write(str(myX))
 myfile.write(';')
