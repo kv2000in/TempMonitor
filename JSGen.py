@@ -10,6 +10,7 @@ import sys
 mysensor=sys.argv[1]
 #open yesterday's temperature data csv file
 #myfile = open((datetime.datetime.today()-datetime.timedelta(1)).strftime('%m-%d-%Y')+'ambient_temp.csv','r')
+#open today's csv file - running at 23:59 everyday
 myfile = open(datetime.datetime.today().strftime('%m-%d-%Y')+mysensor+'.csv','r')
 myX=[]
 myY=[]
@@ -17,12 +18,13 @@ myJSfilename="./html/scripts/"+datetime.datetime.today().strftime('%m-%d-%Y')+my
 myHTMLfilename="./html/"+datetime.datetime.today().strftime('%m-%d-%Y')+"-"+mysensor+"Plot.html"
 myJSfilenameForHTML = datetime.datetime.today().strftime('%m-%d-%Y')+mysensor+".js"
 for myline in myfile:
-	myNewLine = myline.rstrip()
-	myXelement=datetime.datetime.fromtimestamp(float(myNewLine.split(',')[0])/1000).strftime('%Y-%m-%d %H:%M:%S')
+	myNewLine = myline.rstrip() #remove the trailing whitespaces
+	myXelement=datetime.datetime.fromtimestamp(float(myNewLine.split(',')[0])/1000).strftime('%Y-%m-%d %H:%M:%S')#convert timestamp from milliseconds to seconds, format it so that plotly plots correctly
 	myYelement = myNewLine.split(',')[1]
 	myX.append(myXelement)
 	myY.append(myYelement)
 myfile.close()
+#Create the JS file with two arrays which will be used by plotly
 myfile = open(myJSfilename,'w')
 myfile.write('traceX=')
 myfile.write(str(myX))
@@ -31,6 +33,7 @@ myfile.write('traceY=')
 myfile.write(str(myY))
 myfile.write(';')
 myfile.close()
+#create the HTML file
 myHTML = """ <!DOCTYPE html>
 	<html>
 	<!-- 	 
