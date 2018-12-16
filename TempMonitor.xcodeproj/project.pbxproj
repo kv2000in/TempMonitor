@@ -8,10 +8,8 @@
 
 /* Begin PBXFileReference section */
 		2A33457421C5360B000A3E23 /* TempMonitor.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = TempMonitor.py; sourceTree = "<group>"; };
-		2A33457521C5A5F2000A3E23 /* plot.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = plot.html; sourceTree = "<group>"; };
 		2A33457621C5AA9A000A3E23 /* JSGen.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = JSGen.py; sourceTree = "<group>"; };
 		2A33457721C5ABCE000A3E23 /* plotly.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = plotly.js; sourceTree = "<group>"; };
-		2AF6426321C5B20C004DD5BD /* ambient_temp.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ambient_temp.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -19,8 +17,6 @@
 			isa = PBXGroup;
 			children = (
 				2A33457621C5AA9A000A3E23 /* JSGen.py */,
-				2A33457521C5A5F2000A3E23 /* plot.html */,
-				2AF6426321C5B20C004DD5BD /* ambient_temp.js */,
 				2A33457721C5ABCE000A3E23 /* plotly.js */,
 				2A33457421C5360B000A3E23 /* TempMonitor.py */,
 			);

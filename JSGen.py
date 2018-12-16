@@ -1,11 +1,21 @@
+#!/usr/bin/python
 #Copyright kv2000in@gmail.com
+#Generates HTML and JS file with arrays needed to plot the sensor data
+#Will run the script at 23:59 - use same days CSV file 
 import datetime
-#open yesterday's temperature data file
-myfile = open((datetime.datetime.today()-datetime.timedelta(1)).strftime('%m-%d-%Y')+'ambient_temp.csv','r')
+import sys
+#pass name of the sensor as argument to the script
+#Available sensors (Depends on what has been enabled in the ipwebcam app 
+#battery_level,humidity,ambient_temp,battery_temp,light,battery_voltage 
+mysensor=sys.argv[1]
+#open yesterday's temperature data csv file
+#myfile = open((datetime.datetime.today()-datetime.timedelta(1)).strftime('%m-%d-%Y')+'ambient_temp.csv','r')
+myfile = open(datetime.datetime.today().strftime('%m-%d-%Y')+mysensor+'.csv','r')
 myX=[]
 myY=[]
-myJSfilename=datetime.datetime.today().strftime('%m-%d-%Y')+"ambient_temp.js"
-myHTMLfilename="plot.html"
+myJSfilename="./html/scripts/"+datetime.datetime.today().strftime('%m-%d-%Y')+mysensor+".js"
+myHTMLfilename="./html/"+datetime.datetime.today().strftime('%m-%d-%Y')+"-"+mysensor+"Plot.html"
+myJSfilenameForHTML = datetime.datetime.today().strftime('%m-%d-%Y')+mysensor+".js"
 for myline in myfile:
 	myNewLine = myline.rstrip()
 	myXelement=datetime.datetime.fromtimestamp(float(myNewLine.split(',')[0])/1000).strftime('%Y-%m-%d %H:%M:%S')
@@ -151,7 +161,7 @@ myHTML = """ <!DOCTYPE html>
 	<script src="./scripts/plotly.js" type="text/javascript" charset="utf-8"></script>
 	<script src="./scripts/
 	"""
-myHTML+=myJSfilename
+myHTML+=myJSfilenameForHTML
 myHTML+="""
 	" type="text/javascript" charset="utf-8"></script>
 	
