@@ -37,7 +37,8 @@ while 1:
 		#myfile.write(mytxt1.group(1)+","+str(round(float(mytxt1.group(2)),1))) # round the temp to 1 decimal points
 		myfile.write(str(int(mytxt1.group(1))/1000)+","+str(round(float(mytxt1.group(2)),1))) # save seconds instead of millis
 		
-	except URLError:
+	except urllib2.URLError:
 		print "URLError"
+		pass
 	myfile.close()
 	time.sleep(timeTosleep)
