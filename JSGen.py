@@ -19,7 +19,8 @@ myHTMLfilename="./html/"+datetime.datetime.today().strftime('%m-%d-%Y')+"-"+myse
 myJSfilenameForHTML = datetime.datetime.today().strftime('%m-%d-%Y')+mysensor+".js"
 for myline in myfile:
 	myNewLine = myline.rstrip() #remove the trailing whitespaces
-	myXelement=datetime.datetime.fromtimestamp(float(myNewLine.split(',')[0])/1000).strftime('%Y-%m-%d %H:%M:%S')#convert timestamp from milliseconds to seconds, format it so that plotly plots correctly
+	#myXelement=datetime.datetime.fromtimestamp(float(myNewLine.split(',')[0])/1000).strftime('%Y-%m-%d %H:%M:%S')#convert timestamp from milliseconds to seconds, format it so that plotly plots correctly
+	myXelement=datetime.datetime.fromtimestamp(float(myNewLine.split(',')[0])).strftime('%Y-%m-%d %H:%M:%S') #Already saving in seconds instead of millis in csv files
 	myYelement = myNewLine.split(',')[1]
 	myX.append(myXelement)
 	myY.append(myYelement)

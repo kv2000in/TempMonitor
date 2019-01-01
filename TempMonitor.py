@@ -34,8 +34,8 @@ while 1:
 		'''
 		#re.findall generates huge amount of data. Need only one temp reading per 5 seconds
 		mytxt1=re.search(myregex1,mytxt.group(1))
-		myfile.write(mytxt1.group(1)+","+str(round(float(mytxt1.group(2)),1))) # round the temp to 1 decimal points
-		
+		#myfile.write(mytxt1.group(1)+","+str(round(float(mytxt1.group(2)),1))) # round the temp to 1 decimal points
+		myfile.write(str(int(mytxt1.group(1))/1000)+","+str(round(float(mytxt1.group(2)),1))) # save seconds instead of millis
 		
 	except URLError:
 		print "URLError"
