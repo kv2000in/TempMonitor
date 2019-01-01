@@ -26,7 +26,8 @@ while 1:
 		mytxt1=re.findall(myregex1,mytxt.group(1)) #This regex will capture ALL the matches with [0] being timestamp and [1] being value
 		i = 0
 		while i <len(mytxt1): 
-			myfile.write(mytxt1[i][0]+","+mytxt1[i][1])#write this as a CSV format
+			#myfile.write(mytxt1[i][0]+","+mytxt1[i][1])#write this as a CSV format
+			myfile.write(mytxt1[i][0]+","+str(round(float(mytxt1[i][1]),2))) # round the temp to 2 decimal points
 			i +=1
 			myfile.write('\n')
 	except URLError:
