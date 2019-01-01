@@ -23,6 +23,7 @@ while 1:
 		myregex  = r'\S*:\S*:\S*:(\S*)]}}'#\S any non whitespace, * any number of non whitespaces, 
 		mytxt = re.search(myregex,mystring) #this regex will just capture the data from json
 		myregex1 = r'.{1,2}(\d*),\[(\d*\.\d*)\]\]' 
+		'''
 		mytxt1=re.findall(myregex1,mytxt.group(1)) #This regex will capture ALL the matches with [0] being timestamp and [1] being value
 		i = 0
 		while i <len(mytxt1): 
@@ -30,6 +31,12 @@ while 1:
 			myfile.write(mytxt1[i][0]+","+str(round(float(mytxt1[i][1]),2))) # round the temp to 2 decimal points
 			i +=1
 			myfile.write('\n')
+		'''
+		#re.findall generates huge amount of data. Need only one temp reading per 5 seconds
+		mytxt1=re.search(myregex1,mytxt.group(1))
+		myfile.write(mytxt1.group(1)+","+str(round(float(mytxt1.group(2)),1))) # round the temp to 1 decimal points
+		
+		
 	except URLError:
 		print "URLError"
 	myfile.close()
